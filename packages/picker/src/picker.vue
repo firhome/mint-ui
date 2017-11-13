@@ -166,14 +166,18 @@
     },
 
     computed: {
-      values() {
-        var slots = this.slots || [];
-        var values = [];
-        slots.forEach(function(slot) {
-          if (!slot.divider) values.push(slot.value);
-        });
+      values: {
+         get(){
+          var slots = this.slots || [];
+          var values = [];
+          slots.forEach(function(slot) {
+            if (!slot.divider) values.push(slot.value);
+          });
 
-        return values;
+          return values;
+         },
+         set(val){
+         }
       },
       slotCount() {
         var slots = this.slots || [];
